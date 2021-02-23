@@ -2,28 +2,28 @@
 	"GET": {
 		"/index.html": {
 			"headers": {
-				"Location": "/html/list.html"
+				"Location": "/html/dashboard/videos.html"
 			},
 			"statusCode": 302,
 			"content": ""
 		},
 		"/$": {
 			"headers": {
-				"Location": "/html/list.html"
+				"Location": "/html/dashboard/videos.html"
 			},
 			"statusCode": 302,
 			"content": ""
 		},
 		"/go/character_creator/family": {
 			"headers": {
-				"Location": "/cc?themeId=family"
+				"Location": "/character_creator?themeId=family"
 			},
 			"statusCode": 302,
 			"content": ""
 		},
 		"/go/character_creator/business": {
 			"headers": {
-				"Location": "/cc?themeId=business"
+				"Location": "/character_creator?themeId=business"
 			},
 			"statusCode": 302,
 			"content": ""
@@ -80,7 +80,7 @@
 			"headers": {
 				"Content-Type": "text/html; charset=UTF-8"
 			},
-			"content": "<?xml encoding=\"UTF-8\"?><watermarks><watermark style=\"freeTrial\"/></watermarks>"
+			"content": "<?xml encoding=\"UTF-8\"?><watermarks><watermark style=\"g4s\"/></watermarks>"
 		},
 		"/api_v2/asset/get": {
 			"headers": {
@@ -102,7 +102,7 @@
 		}
 	},
 	"pages": {
-		"/go_full": "<iframe style='display:none'name='dummy'></iframe><form style='display:none'id='uploadbanner'enctype='multipart/form-data'method='post'action='/upload_asset'target='dummy'><input type='text'name='params'/><input id='fileupload'name='import'type='file'onchange='importComplete(this)'accept='.mp3,.wav,.png,.jpg,.mp4,.webm'/><input type='submit'value='submit'id='submit'/></form><script>interactiveTutorial{Display:function(){return true}};function studioLoaded(arg){console.log(arg)}function initPreviewPlayer(xml){confirm('Before proceeding, please make sure all your changes have been saved.')&&window.open('player?movieId='+flashvars.presaveId,'MsgWindow','width=1280,height=720,left='+(screen.width/2-640)+',top='+(screen.height/2-360))};function exitStudio(){window.location='/html/list.html'}const fu=document.getElementById('fileupload'),sub=document.getElementById('submit');function showImporter(){fu.click()};function importComplete(obj){const file=obj.files[0];if(file!=undefined){const ext=file.name.substring(file.name.lastIndexOf('.')+1);var params='';if(ext=='mp3'||ext=='wav'){var c;while(c!='vo'&&c!='se'&&c!='mu'){c=prompt('Would you like to upload this as a voiceover (\"vo\"), sound effect (\"se\"), or as music (\"mu\")?').toLowerCase()}params+=c}else if(ext=='jpg'||ext=='png'){params+=confirm('Would you like to upload this asset as a background? \"no\" will upload as a prop.')?'bg':'prop'}obj.parentElement.firstChild.value=params+'.'+ext;sub.click();return true}}</script>",
-		"/cc": "<script>function characterSaved(){window.location.reload()}</script>"
+		"/videomaker/full": "<iframe style='display:none'name='dummy'></iframe><form style='display:none'id='uploadbanner'enctype='multipart/form-data'method='post'action='/upload_asset'target='dummy'><input type='text'name='params'/><input id='fileupload'name='import'type='file'onchange='importComplete(this)'accept='.mp3,.wav,.png,.jpg,.mp4,.webm'/><input type='submit'value='submit'id='submit'/></form><script>interactiveTutorial{neverDisplay:function(){return true}};function studioLoaded(arg){console.log(arg)}function initPreviewPlayer(xml){confirm('Before proceeding, please make sure all your changes have been saved.')&&window.open('movie?movieId='+flashvars.presaveId,'MsgWindow','width=1280,height=720,left='+(screen.width/2-640)+',top='+(screen.height/2-360))};function exitStudio(){window.location='/html/dashboard/videos.html'}const fu=document.getElementById('fileupload'),sub=document.getElementById('submit');function showImporter(){fu.click()};function importComplete(obj){const file=obj.files[0];if(file!=undefined){const ext=file.name.substring(file.name.lastIndexOf('.')+1);var params='';if(ext=='mp3'||ext=='wav'){var c;while(c!='vo'&&c!='se'&&c!='mu'){c=prompt('Would you like to upload this as a voiceover (\"vo\"), sound effect (\"se\"), or as music (\"mu\")?').toLowerCase()}params+=c}else if(ext=='jpg'||ext=='png'){params+=confirm('Would you like to upload this asset as a background? \"no\" will upload as a prop.')?'bg':'prop'}obj.parentElement.firstChild.value=params+'.'+ext;sub.click();return true}}</script>",
+		"/character_creator": "<script>function characterSaved(){window.location.reload()}</script>"
 	}
 }
