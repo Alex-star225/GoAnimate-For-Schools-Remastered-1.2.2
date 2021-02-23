@@ -33,8 +33,8 @@ module.exports = function (req, res, url) {
 
 	var attrs, params, title;
 	switch (url.pathname) {
-		case "/cc": {
-			title = "Character Creator";
+		case "/character_creator/new_char/": {
+			title = "Make a Character - GoAnimate for Schools Remastered";
 			attrs = {
 				data: process.env.SWF_URL + "/cc.swf", // data: 'cc.swf',
 				type: "application/x-shockwave-flash",
@@ -44,7 +44,7 @@ module.exports = function (req, res, url) {
 			};
 			params = {
 				flashvars: {
-					apiserver: "/",
+					apiserver: "https://goanimate4schools.herokuapp.com",
 					storePath: process.env.STORE_URL + "/<store>",
 					clientThemePath: process.env.CLIENT_URL + "/<client_theme>",
 					original_asset_id: query["id"] || null,
@@ -66,8 +66,8 @@ module.exports = function (req, res, url) {
 			break;
 		}
 		
-		case "/cc_browser": {
-			title = "CC Browser";
+		case "/character_creator": {
+			title = "Make a Character - GoAnimate for Schools Remastered";
 			attrs = {
 				data: process.env.SWF_URL + "/cc_browser.swf", // data: 'cc_browser.swf',
 				type: "application/x-shockwave-flash",
@@ -77,7 +77,7 @@ module.exports = function (req, res, url) {
 			};
 			params = {
 				flashvars: {
-					apiserver: "/",
+					apiserver: "https://goanimate4schools.herokuapp.com",
 					storePath: process.env.STORE_URL + "/<store>",
 					clientThemePath: process.env.CLIENT_URL + "/<client_theme>",
 					original_asset_id: query["id"] || null,
@@ -99,12 +99,12 @@ module.exports = function (req, res, url) {
 			break;
 		}
 
-		case "/go_full": {
+		case "/videomaker/full": {
 			let presave =
 				query.movieId && query.movieId.startsWith("m")
 					? query.movieId
 					: `m-${fUtil[query.Autosave ? "getNextFileId" : "fillNextFileId"]("movie-", ".xml")}`;
-			title = "Video Editor";
+			title = "Make a Video - GoAnimate For Schools Remastered";
 			attrs = {
 				data: process.env.SWF_URL + "/go_full.swf",
 				type: "application/x-shockwave-flash",
@@ -113,7 +113,7 @@ module.exports = function (req, res, url) {
 			};
 			params = {
 				flashvars: {
-					apiserver: "/",
+					apiserver: "https://goanimate4schools.herokuapp.com",
 					storePath: process.env.STORE_URL + "/<store>",
 					isEmbed: 1,
 					ctc: "go",
@@ -139,7 +139,7 @@ module.exports = function (req, res, url) {
 			break;
 		}
 
-		case "/player": {
+		case "/movie": {
 			title = "Player";
 			attrs = {
 				data: process.env.SWF_URL + "/player.swf",
