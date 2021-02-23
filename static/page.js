@@ -33,8 +33,8 @@ module.exports = function (req, res, url) {
 
 	var attrs, params, title;
 	switch (url.pathname) {
-		case "/character_creator/new_char/": {
-			title = "Make a Character - GoAnimate for Schools Remastered";
+		case "/cc": {
+			title = "Character Creator";
 			attrs = {
 				data: process.env.SWF_URL + "/cc.swf", // data: 'cc.swf',
 				type: "application/x-shockwave-flash",
@@ -66,8 +66,8 @@ module.exports = function (req, res, url) {
 			break;
 		}
 		
-		case "/character_creator": {
-			title = "Make a Character - GoAnimate for Schools Remastered";
+		case "/cc_browser": {
+			title = "CC Browser";
 			attrs = {
 				data: process.env.SWF_URL + "/cc_browser.swf", // data: 'cc_browser.swf',
 				type: "application/x-shockwave-flash",
@@ -99,12 +99,12 @@ module.exports = function (req, res, url) {
 			break;
 		}
 
-		case "/videomaker/full": {
+		case "/go_full": {
 			let presave =
 				query.movieId && query.movieId.startsWith("m")
 					? query.movieId
 					: `m-${fUtil[query.Autosave ? "getNextFileId" : "fillNextFileId"]("movie-", ".xml")}`;
-			title = "Make a Video - GoAnimate For Schools Remastered";
+			title = "Video Editor";
 			attrs = {
 				data: process.env.SWF_URL + "/go_full.swf",
 				type: "application/x-shockwave-flash",
@@ -139,7 +139,7 @@ module.exports = function (req, res, url) {
 			break;
 		}
 
-		case "/movie": {
+		case "/player": {
 			title = "Player";
 			attrs = {
 				data: process.env.SWF_URL + "/player.swf",
